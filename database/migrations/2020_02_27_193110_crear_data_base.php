@@ -26,8 +26,9 @@ class CrearDataBase extends Migration
         });
 
         Schema::create('atletas', function (Blueprint $table) {
-            $table->bigInteger('CI')->unique();
-            $table->bigIncrements('CIDirectivos');
+            $table->bigInteger('CIAtleta')->unique();
+            $table->bigInteger('CIDirectivo');
+            $table->bigInteger('idRepresentate');
             $table->string('passport')->unique();
             $table->string('firstName');
             $table->string('secondName');
@@ -59,7 +60,7 @@ class CrearDataBase extends Migration
         });
 
         Schema::create('directivos', function (Blueprint $table) {
-            $table->bigInteger('CI')->unique();
+            $table->bigInteger('CIDirectivo')->unique();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('lastName');
@@ -73,8 +74,9 @@ class CrearDataBase extends Migration
 
         Schema::create('pagos', function (Blueprint $table) {
             $table->bigIncrements('idPago');
-            $table->integer('idFactura');
-            $table->integer('idProducto');
+            $table->bigInteger('CIAtleta');
+            $table->bigInteger('idFactura');
+            $table->bigInteger('idProducto');
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
@@ -143,12 +145,12 @@ class CrearDataBase extends Migration
         Schema::dropIfExists('representantes');
         Schema::dropIfExists('atletas');
         Schema::dropIfExists('directivos');
-        Schema::dropIfExists('pagos');
         Schema::dropIfExists('facturas');
         Schema::dropIfExists('productos');
         Schema::dropIfExists('planes');
         Schema::dropIfExists('uniformes');
-        Schema::dropIfExists('asistencias');
         Schema::dropIfExists('citas');
+        Schema::dropIfExists('pagos');
+        Schema::dropIfExists('asistencias');
     }
 }
