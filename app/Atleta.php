@@ -8,6 +8,10 @@ class Atleta extends Model
 {
     
     public function directivo(){
-        return $this->belongsTo(Directivo::class,'CIDirectivo');
+        return $this->belongsTo(Directivo::class,'CIDirectivo','CIDirectivo');
+    }
+
+    public function representantes(){
+        return $this->belongsTo(Representante::class,'idRepresentante','idRepresentante');
     }
 }
