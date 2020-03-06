@@ -15,12 +15,13 @@ class CrearDataBase extends Migration
     {
         Schema::create('representantes', function (Blueprint $table) {
             $table->bigIncrements('idRepresentante');
+            $table->bigInteger('CIAtleta');
             $table->string('firstName');
-            $table->string('secondName');
+            $table->string('secondName')->nullable();
             $table->string('lastName');
-            $table->string('secondLastName');
+            $table->string('secondLastName')->nullable();
             $table->string('email')->unique();
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
@@ -28,17 +29,16 @@ class CrearDataBase extends Migration
         Schema::create('atletas', function (Blueprint $table) {
             $table->bigInteger('CIAtleta')->unique();
             $table->bigInteger('CIDirectivo');
-            $table->bigInteger('idRepresentate');
             $table->string('passport')->unique();
             $table->string('firstName');
-            $table->string('secondName');
+            $table->string('secondName')->nullable();
             $table->string('lastName');
-            $table->string('secondLastName');
+            $table->string('secondLastName')->nullable();
             $table->string('email')->unique();
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->string('nickname');
             $table->string('country');
-            $table->integer('cellphone');
+            $table->string('cellphone');
             $table->date('birthDate');
             $table->string('birthPlace');
             $table->string('city');
@@ -47,7 +47,7 @@ class CrearDataBase extends Migration
             $table->string('weight');
             $table->enum('foot',['izq','der']);
             $table->string('position');
-            $table->string('previousClub');
+            $table->string('previousClub')->nullable();
             $table->string('highSchool');
             $table->string('footSize');
             $table->string('shirtSize');
@@ -62,11 +62,11 @@ class CrearDataBase extends Migration
         Schema::create('directivos', function (Blueprint $table) {
             $table->bigInteger('CIDirectivo')->unique();
             $table->string('firstName');
-            $table->string('secondName');
+            $table->string('secondName')->nullable();
             $table->string('lastName');
-            $table->string('secondLastName');
+            $table->string('secondLastName')->nullable();
             $table->string('email')->unique();
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->string('role');
             $table->boolean('active')->default(1);
             $table->timestamps();

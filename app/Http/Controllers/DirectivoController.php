@@ -39,9 +39,9 @@ class DirectivoController extends Controller
     {
         $validData = $request->validate([
             'firstName'=> 'required|min:3',
-            'secondName'=> 'required|min:3',
+            'secondName'=> '',
             'lastName'=> 'required|min:3',
-            'secondLastName'=> 'required|min:3',
+            'secondLastName'=> '',
             'email'=> ['required','email:rfc,dns','unique:directivos,email'],
             'phoneNumber'=> 'required|min:3|numeric',
             'role'=> 'required|min:3',
@@ -100,10 +100,10 @@ class DirectivoController extends Controller
     {
         $validData = $request->validate([
             'firstName'=> 'required|min:3',
-            'secondName'=> 'required|min:3',
+            'secondName'=> '',
             'lastName'=> 'required|min:3',
-            'secondLastName'=> 'required|min:3',
-            'email'=> 'email:rfc,dns',
+            'secondLastName'=> '',
+            'email'=> ['required','email:rfc,dns'],
             'phoneNumber'=> 'required|min:3|numeric',
             'role'=> 'required|min:3'
         ]);

@@ -18,3 +18,12 @@ Route::get('/','HomeController@index');
 // Directivos Routes 
 Route::resource('/directivos','DirectivoController');
 Route::get('/directivos/{id}/confirmDelete','DirectivoController@confirmDelete');
+
+// Atletas Routes
+
+Route::resource('/atletas','AtletaController');
+Route::get('/atletas/{id}/confirmDelete','AtletaController@confirmDelete');
+
+// Representantes Routes
+Route::resource('/representantes','RepresentanteController');
+Route::get('/representantes/{id}/confirmDelete','RepresentanteController@confirmDelete');

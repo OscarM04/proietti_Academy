@@ -13,6 +13,6 @@ class Atleta extends Model
     }
 
     public function representantes(){
-        return $this->belongsTo(Representante::class,'idRepresentante','idRepresentante');
+        return $this->hasMany(Representante::class,'CIAtleta','CIAtleta');
     }
 }

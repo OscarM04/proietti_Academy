@@ -8,8 +8,13 @@
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col">
-                            <a href="/directivos"> Directivos </a>
+                        <div class="col">  
+                                <ul> 
+                                    <a href="/directivos"> Directivos </a> 
+                                </ul>
+                                <ul>
+                                    <a href="/atletas"> Atletas </a>
+                                </ul>    
                         </div>
                     </div>
                 </div>
