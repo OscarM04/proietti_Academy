@@ -11,6 +11,10 @@
 |
 */
 
+// Home Route
 Route::get('/','HomeController@index');
 
+
+// Directivos Routes 
 Route::resource('/directivos','DirectivoController');
+Route::get('/directivos/{id}/confirmDelete','DirectivoController@confirmDelete');

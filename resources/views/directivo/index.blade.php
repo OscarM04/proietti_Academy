@@ -17,9 +17,9 @@
             <table class="table">
                 @foreach($directivos as $directivo)
                     <tr>
-                        <td> <a href="#"> {{ $directivo->firstName }} </a> </td>
-                        <td> <a class="btn btn-secondary" href="#"> Edit </a> </td>
-                        <td> <a class="btn btn-secondary" href="#"> Delete </a></td>
+                        <td> <a href="/directivos/{{$directivo->CIDirectivo}}"> {{ $directivo->firstName }} </a> </td>
+                        <td> <a class="btn btn-secondary" href="/directivos/{{$directivo->CIDirectivo}}/edit"> Editar </a> </td>
+                        <td> <a class="btn btn-secondary" href="/directivos/{{ $directivo->CIDirectivo}}/confirmDelete"> Borrar </a></td>
                     </tr>
                 @endforeach
             </table>

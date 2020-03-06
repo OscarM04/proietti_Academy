@@ -42,10 +42,10 @@ class DirectivoController extends Controller
             'secondName'=> 'required|min:3',
             'lastName'=> 'required|min:3',
             'secondLastName'=> 'required|min:3',
-            'email'=> 'email:rfc,dns',
+            'email'=> ['required','email:rfc,dns','unique:directivos,email'],
             'phoneNumber'=> 'required|min:3|numeric',
             'role'=> 'required|min:3',
-            'CIDirectivo'=> 'required|numeric'
+            'CIDirectivo'=> ['required','numeric','unique:directivos,CIDirectivo']
         ]);
 
         $directivo = new Directivo();
@@ -65,12 +65,14 @@ class DirectivoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Directivo $directivo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Directivo $directivo)
     {
-        //
+        return view('directivo.show',[
+            'directivo'=> $directivo
+        ]);
     }
 
     /**
@@ -81,7 +83,10 @@ class DirectivoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $directivo = Directivo::findOrFail($id);
+        return view('directivo.edit',[
+            'directivo' => $directivo 
+        ]);
     }
 
     /**
@@ -93,7 +98,27 @@ class DirectivoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validData = $request->validate([
+            'firstName'=> 'required|min:3',
+            'secondName'=> 'required|min:3',
+            'lastName'=> 'required|min:3',
+            'secondLastName'=> 'required|min:3',
+            'email'=> 'email:rfc,dns',
+            'phoneNumber'=> 'required|min:3|numeric',
+            'role'=> 'required|min:3'
+        ]);
+
+        $directivo = Directivo::findOrFail($id);
+        $directivo->firstName = $validData['firstName'];
+        $directivo->secondName = $validData['secondName'];
+        $directivo->lastName = $validData['lastName'];
+        $directivo->secondLastName = $validData['secondLastName'];
+        $directivo->email = $validData['email'];
+        $directivo->phoneNumber = $validData['phoneNumber'];
+        $directivo->role = $validData['role'];
+        $directivo->save();
+
+        return redirect('/directivos'); 
     }
 
     /**
@@ -104,6 +129,15 @@ class DirectivoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $report = Directivo::findOrFail($id);
+        $report->delete();
+        return redirect('/directivos');
+    }
+
+    public function confirmDelete($id){
+        $directivo = Directivo::findOrFail($id);
+        return view('directivo.confirmDelete',[
+            'directivo'=> $directivo
+        ]);
     }
 }
