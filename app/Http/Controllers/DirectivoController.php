@@ -43,7 +43,7 @@ class DirectivoController extends Controller
             'lastName'=> 'required|min:3',
             'secondLastName'=> '',
             'email'=> ['required','email:rfc,dns','unique:directivos,email'],
-            'phoneNumber'=> 'required|min:3|numeric',
+            'phoneNumber'=> 'required|min:11|numeric',
             'role'=> 'required|min:3',
             'CIDirectivo'=> ['required','numeric','unique:directivos,CIDirectivo']
         ]);
@@ -129,8 +129,8 @@ class DirectivoController extends Controller
      */
     public function destroy($id)
     {
-        $report = Directivo::findOrFail($id);
-        $report->delete();
+        $directivo = Directivo::findOrFail($id);
+        $directivo->delete();
         return redirect('/directivos');
     }
 

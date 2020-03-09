@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h1> Delete Directivo {{$directivo->CIDirectivo }} </h1>
+            <h1> Borrar Directivo {{$directivo->CIDirectivo . ': '. $directivo->firstName . ' '. $directivo->lastName}} </h1>
         </div>
     </div>
     <div class="row">

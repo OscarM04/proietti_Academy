@@ -20,7 +20,7 @@
                     <tr>
                         <td> <a href="/atletas/{{$atleta->CIAtleta}}"> {{ $atleta->firstName .' '. $atleta->lastName }} </a> </td>
                         <td> <a class="btn btn-secondary" href="/atletas/{{$atleta->CIAtleta}}/edit"> Editar </a> </td>
-                        <td> <a class="btn btn-secondary" href="#"> Borrar </a></td>
+                        <td> <a class="btn btn-secondary" href="/atletas/{{$atleta->CIAtleta}}/confirmDelete"> Borrar </a></td>
                     </tr>
                 @endforeach
             </table>

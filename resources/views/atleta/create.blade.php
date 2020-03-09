@@ -96,16 +96,27 @@
             
                 <div class="form-group">
                     <label for="bloodType"> Tipo de sangre </label>
-                    <input type="text" class="form-control" id="bloodType" name="bloodType" placeholder="Escribe el tipo de sangre" value="{{ old('bloodType') }}">               
+                    <select name="bloodType" id="bloodType">
+                        <optgroup label="Tipo">
+                            <option value="O+" > O+ </option>
+                            <option value="O-" > O- </option>
+                            <option value="A+" > A+ </option>
+                            <option value="A-" > A- </option>
+                            <option value="B+" > B+ </option>
+                            <option value="B-" > B- </option>
+                            <option value="AB+"> AB+ </option>
+                            <option value="AB-"> AB-</option>
+                        </optgroup>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="height"> Altura </label>
+                    <label for="height"> Altura(m) </label>
                     <input type="text" class="form-control" id="height" name="height" placeholder="Escribe la altura" value="{{ old('height') }}">               
                 </div>
 
                 <div class="form-group">
-                    <label for="weight"> Peso </label>
+                    <label for="weight"> Peso(Kg) </label>
                     <input type="text" class="form-control" id="weight" name="weight" placeholder="Escribe el peso" value="{{ old('weight') }}">               
                 </div>
 
@@ -154,13 +165,35 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="footSize"> Talla de zapatos</label>
-                    <input type="text" class="form-control" id="footSize" name="footSize" placeholder="Escribe talla de zapatos" value="{{ old('footSize') }}">               
+                    <label for="footSize"> Talla de zapatos </label>
+                    <select name="footSize" id="footSize">
+                        <optgroup label="Talla">
+                            <option value="36"> 36 </option>
+                            <option value="37"> 37 </option>
+                            <option value="38"> 38 </option>
+                            <option value="39"> 39 </option>
+                            <option value="40"> 40 </option>
+                            <option value="41"> 41 </option>
+                            <option value="42"> 42 </option>
+                            <option value="43"> 43 </option>
+                            <option value="44"> 44 </option>
+                        </optgroup>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="shirtSize"> Talla de camisa </label>
-                    <input type="text" class="form-control" id="shirtSize" name="shirtSize" placeholder="Escribe la talla de camisa" value="{{ old('shirtSize') }}">               
+                    <label for="shirtSize"> Talla de Camisa </label>
+                    <select name="shirtSize" id="shirtSize">
+                        <optgroup label="Talla">
+                            <option value="10"> 10 </option>
+                            <option value="12"> 12 </option>
+                            <option value="14"> 14 </option>
+                            <option value="16"> 16 </option>
+                            <option value="S" >  S </option>
+                            <option value="M" >  M </option>
+                            <option value="L" >  L </option>
+                        </optgroup>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -179,7 +212,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description"> description </label>
+                    <label for="description"> Description </label>
                     <input type="text" class="form-control" id="description" name="description" placeholder="Escribe el peso" value="{{ old('description') }}">               
                 </div>
 

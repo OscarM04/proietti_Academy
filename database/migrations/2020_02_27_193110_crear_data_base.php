@@ -52,9 +52,9 @@ class CrearDataBase extends Migration
             $table->string('footSize');
             $table->string('shirtSize');
             $table->string('pantSize');
-            $table->string('allergy');
-            $table->string('injuries');
-            $table->string('description');
+            $table->string('allergy')->nullable();
+            $table->string('injuries')->nullable();
+            $table->string('description')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

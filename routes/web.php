@@ -25,5 +25,6 @@ Route::resource('/atletas','AtletaController');
 Route::get('/atletas/{id}/confirmDelete','AtletaController@confirmDelete');
 
 // Representantes Routes
-Route::resource('/representantes','RepresentanteController');
-Route::get('/representantes/{id}/confirmDelete','RepresentanteController@confirmDelete');
+Route::get('/atletas/{CIAtleta}/representantes','RepresentanteController@index');
+Route::get('/atletas/{CIAtleta}/representantes/create','RepresentanteController@create');
+Route::post('/atletas/{CIAtleta}/representantes@store', 'RepresentanteController@store');
